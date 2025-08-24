@@ -1,5 +1,36 @@
-body { font-family: Arial, sans-serif; margin: 20px; }
-#walletContainer { max-width: 500px; margin: auto; }
-button { margin: 5px 0; padding: 10px; }
-input { margin: 5px 0; padding: 8px; width: 100%; }
-#walletInfo { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+#walletContainer {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin: 5px 0;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#walletInfo {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  background: #fafafa;
+}

@@ -1,37 +1,44 @@
-let currentWallet = null;
+// Simple word list (you can replace with full BIP39 later)
+const words = ["apple", "block", "chain", "wallet", "seed", "future", "crypto", "megblock", "secure", "token", "mining", "digital"];
 
-function createWallet() {
-    // Generate a random seed phrase (for now simple words)
-    const words = [];
-    const wordList = ["apple","block","chain","crypto","dream","energy","future","gold","hash","idea","journey","key","ledger","meg","node","open","peer","quantum","reward","seed"];
-    for (let i = 0; i < 12; i++) {
-        words.push(wordList[Math.floor(Math.random() * wordList.length)]);
-    }
-    const seedPhrase = words.join(" ");
+function generateWallet() {
+  // Generate a random 12-word seed phrase
+  let seed = [];
+  for (let i = 0; i < 12; i++) {
+    let randomWord = words[Math.floor(Math.random() * words.length)];
+    seed.push(randomWord);
+  }
+  let seedPhrase = seed.join(" ");
 
-    // Make wallet object
-    currentWallet = {
-        id: "MB-" + Math.floor(Math.random() * 1e9),
-        seed: seedPhrase,
-        balance: 0
-    };
+  // Fake address (later replace with real derivation if needed)
+  let walletAddress = "MB" + Math.random().toString(36).substring(2, 12).toUpperCase();
 
-    // Show wallet in page
-    document.getElementById("wallet-id").textContent = currentWallet.id;
-    document.getElementById("seed-phrase").textContent = currentWallet.seed;
-    document.getElementById("balance").textContent = currentWallet.balance + " MB";
+  // Show on page
+  document.getElementById("seedPhrase").innerText = seedPhrase;
+  document.getElementById("walletAddress").innerText = walletAddress;
+
+  // Save for download
+  localStorage.setItem("megblock_seed", seedPhrase);
+  localStorage.setItem("megblock_address", walletAddress);
 }
 
 function downloadWallet() {
-    if (!currentWallet) {
-        alert("❌ No wallet created yet");
-        return;
-    }
-    const blob = new Blob([JSON.stringify(currentWallet, null, 2)], {type: "application/json"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = currentWallet.id + ".json";
-    a.click();
-    URL.revokeObjectURL(url);
+  let seed = localStorage.getItem("megblock_seed");
+  let address = localStorage.getItem("megblock_address");
+
+  if (!seed || !address) {
+    alert("⚠️ No wallet created yet!");
+    return;
+  }
+
+  let walletData = `MEGBLOCK WALLET\n\nSeed Phrase:\n${seed}\n\nAddress:\n${address}`;
+  let blob = new Blob([walletData], { type: "text/plain" });
+  let url = URL.createObjectURL(blob);
+
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "megblock_wallet.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }

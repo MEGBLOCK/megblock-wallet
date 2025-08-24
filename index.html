@@ -2,28 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MEGBLOCK Wallet</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="walletContainer">
-  <h2>Create Your Wallet</h2>
-  <button id="createWallet">Create Wallet</button>
-  <button id="copySeed">Copy Seed Phrase</button>
-  <button id="downloadWallet">Download Wallet JSON</button>
+  <div id="walletContainer">
+    <!-- Logo -->
+    <img src="logo.png" alt="MEGBLOCK Logo" id="logo">
 
-  <h2>Redeem Voucher</h2>
-  <input type="text" id="voucherCode" placeholder="Enter voucher code">
-  <button id="redeemVoucher">Redeem Voucher</button>
+    <h2>MEGBLOCK Wallet Generator</h2>
 
-  <h2>P2P Transfer</h2>
-  <input type="text" id="recipientID" placeholder="Recipient Wallet ID">
-  <input type="number" id="transferAmount" placeholder="Amount MB">
-  <button id="sendMB">Send MB</button>
-</div>
+    <!-- Generate Wallet Button -->
+    <button onclick="generateWallet()">Create Wallet</button>
 
-<!-- BIP39 library for seed phrases -->
-<script src="https://cdn.jsdelivr.net/npm/bip39@3.0.4/dist/bip39.min.js"></script>
-<script src="main.js"></script>
+    <!-- Wallet Info -->
+    <div id="walletInfo">
+      <p><strong>Seed Phrase:</strong></p>
+      <p id="seedPhrase">None</p>
+
+      <p><strong>Address:</strong></p>
+      <p id="walletAddress">None</p>
+    </div>
+
+    <!-- Download Button -->
+    <button onclick="downloadWallet()">Download Wallet</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
