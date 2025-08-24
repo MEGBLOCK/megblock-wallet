@@ -8,11 +8,10 @@ body {
 #walletContainer {
   max-width: 500px;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
   background: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #logo {
@@ -22,15 +21,28 @@ body {
 
 button {
   margin: 5px 0;
-  padding: 10px 15px;
+  padding: 10px;
+  width: 100%;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #6a5acd;
+  color: white;
+}
+
+button:hover {
+  background: #5745c1;
 }
 
 #walletInfo {
   border: 1px solid #ccc;
   padding: 10px;
-  margin: 15px 0;
-  border-radius: 8px;
-  background: #fafafa;
+  margin: 10px 0;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+strong {
+  color: #333;
 }

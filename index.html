@@ -2,33 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MEGBLOCK Wallet</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="walletContainer">
-    <!-- Logo -->
     <img src="logo.png" alt="MEGBLOCK Logo" id="logo">
-
     <h2>MEGBLOCK Wallet Generator</h2>
-
-    <!-- Generate Wallet Button -->
-    <button onclick="generateWallet()">Create Wallet</button>
-
-    <!-- Wallet Info -->
+    <button id="createWallet">Create Wallet</button>
     <div id="walletInfo">
       <p><strong>Seed Phrase:</strong></p>
       <p id="seedPhrase">None</p>
-
       <p><strong>Address:</strong></p>
       <p id="walletAddress">None</p>
     </div>
-
-    <!-- Download Button -->
-    <button onclick="downloadWallet()">Download Wallet</button>
+    <button id="downloadWallet">Download Wallet</button>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
