@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MEGBLOCK Wallet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="walletContainer">
+    <h2>Create Your Wallet</h2>
+    <button id="createWallet">Create Wallet</button>
+    <div id="walletInfo"></div>
+    <button id="copySeed">Copy Seed Phrase</button>
+    <button id="downloadWallet">Download Wallet JSON</button>
+
+    <h2>Redeem Voucher</h2>
+    <input type="text" id="voucherCode" placeholder="Enter voucher code">
+    <button id="redeemVoucher">Redeem Voucher</button>
+
+    <h2>P2P Transfer</h2>
+    <input type="text" id="recipientID" placeholder="Recipient Wallet ID">
+    <input type="number" id="transferAmount" placeholder="Amount MB">
+    <button id="sendMB">Send MB</button>
+  </div>
+
+  <!-- BIP39 library for seed phrases -->
+  <script src="https://cdn.jsdelivr.net/npm/bip39@3.0.4/dist/bip39.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
