@@ -1,30 +1,3 @@
-// Temporary placeholder for user/IP
-const ip = "user1"; // for testing
-
-// Wallet storage
-let walletsByIP = {};
-let currentWallet = null;
-
-// Predefined vouchers for testing
-const vouchers = {
-  "VOUCHER001": 10,
-  "VOUCHER002": 100
-};
-
-// Elements
-const walletInfo = document.getElementById("walletInfo");
-const createWalletBtn = document.getElementById("createWallet");
-const copySeedBtn = document.getElementById("copySeed");
-const downloadWalletBtn = document.getElementById("downloadWallet");
-const redeemVoucherBtn = document.getElementById("redeemVoucher");
-const voucherInput = document.getElementById("voucherCode");
-const sendMBBtn = document.getElementById("sendMB");
-const recipientInput = document.getElementById("recipientID");
-const transferAmountInput = document.getElementById("transferAmount");
-
-// Generate a random wallet ID
-function generateWalletID() {
-  return 'WB' + Math.floor(Math.random() * 1000000);
 let currentWallet = null;
 
 function createWallet() {
