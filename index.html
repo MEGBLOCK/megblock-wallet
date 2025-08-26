@@ -8,16 +8,58 @@
 <body>
   <div id="walletContainer">
     <img src="logo.png" alt="MEGBLOCK Logo" id="logo">
+
     <h2>MEGBLOCK Wallet Generator</h2>
-    <button id="createWallet">Create Wallet</button>
+
+    <!-- Email and DOB for 18+ check -->
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <input type="date" id="dob" placeholder="Date of Birth" required>
+    <small>Must be 18+ to create a wallet</small>
+
+    <!-- Wallet Buttons -->
+    <div class="button-group">
+      <button id="createWallet">Create Wallet</button>
+      <button id="downloadWallet">Download Wallet</button>
+      <button id="copyWallet">Copy Wallet</button>
+    </div>
+
+    <!-- Wallet Info Display -->
     <div id="walletInfo">
       <p><strong>Seed Phrase:</strong></p>
-      <p id="seedPhrase">None</p>
+      <textarea id="seedPhrase" readonly>None</textarea>
+
       <p><strong>Address:</strong></p>
       <p id="walletAddress">None</p>
+
+      <p><strong>Balance:</strong> <span id="walletBalance">0 MB</span></p>
+
+      <p><strong>Total MB Minted:</strong> <span id="totalMinted">0</span> / 120,000,000 MB</p>
+      <p><strong>Next Wallet Reward:</strong> <span id="nextReward">1 MB</span></p>
+
+      <p><strong>Balance History:</strong></p>
+      <div id="walletHistory"></div>
     </div>
-    <button id="downloadWallet">Download Wallet</button>
+
+    <!-- Voucher Redeem -->
+    <h2>Redeem Voucher</h2>
+    <input type="text" id="voucherCode" placeholder="Enter voucher code">
+    <div style="margin:10px 0;">
+      <input type="checkbox" id="voucherTerms">
+      <label for="voucherTerms">
+        I understand that MEGBLOCK MB cannot be cashed out through this platform.
+        All P2P transfers are user-managed.
+      </label>
+    </div>
+    <button id="redeemVoucher">Redeem Voucher</button>
+
+    <!-- P2P Transfer -->
+    <h2>P2P Transfer</h2>
+    <input type="text" id="recipientID" placeholder="Recipient Wallet Address">
+    <input type="number" id="transferAmount" placeholder="Amount MB">
+    <input type="text" id="senderSeed" placeholder="Enter your 12-word seed phrase to confirm">
+    <button id="sendMB">Send MB</button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

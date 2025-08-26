@@ -1,8 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
-  background: #f9f9f9;
   text-align: center;
+  background: linear-gradient(135deg, #f9f9f9, #ececff);
 }
 
 #walletContainer {
@@ -29,10 +29,19 @@ button {
   border: none;
   background: #6a5acd;
   color: white;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #5745c1;
+}
+
+/* Grouped buttons for wallet actions */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
 #walletInfo {
@@ -41,8 +50,85 @@ button:hover {
   margin: 10px 0;
   text-align: left;
   white-space: pre-wrap;
+  border-radius: 8px;
+  background: #fafafa;
 }
 
-strong {
-  color: #333;
+#seedPhrase {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f3f3f3;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+#walletAddress {
+  word-wrap: break-word;
+  font-family: monospace;
+  background: #f3f3f3;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+#walletBalance {
+  font-weight: bold;
+  color: #4b0082;
+}
+
+#totalMinted, #nextReward {
+  font-weight: bold;
+  color: #2e8b57;
+  font-size: 15px;
+}
+
+#walletHistory {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  min-height: 50px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#voucherCode, 
+#recipientID, 
+#transferAmount, 
+#email, 
+#dob, 
+#senderSeed {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+#voucherCode {
+  width: 100%;
+}
+
+#redeemVoucher, #sendMB {
+  padding: 10px;
+  margin-top: 8px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  #email, #dob, #voucherCode, #recipientID, #transferAmount, #senderSeed {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
 }
